@@ -2,10 +2,10 @@ all: compile jar
 	
 compile:
 	mkdir build
-	javac Face.java -d ./build
-	javac ./exceptions/InvalidPlyFile.java -d ./build
-	javac Vertice.java -d ./build
-	javac Ply.java -d ./build
+	javac ./edt/ply/elements/Face.java -d ./build
+	javac ./edt/exceptions/InvalidPlyFile.java -d ./build
+	javac ./edt/ply/elements/Vertice.java -d ./build
+	javac ./edt/ply/Ply.java -d ./build
 	javac Main.java -d ./build
 
 jar:
@@ -13,7 +13,7 @@ jar:
 	jar cvfm Main.jar manifest -C ./build/ .
 	echo "\n***usage-> make run ARG=filename.ply***\n"
 run:
-	java -jar Main.jar $(ARG) 
+	java -jar Main.jar $(ARG)
 
 clean:
 	rm -r build
